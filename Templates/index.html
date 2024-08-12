@@ -55,12 +55,12 @@
     <div class="container mt-5">
         <div class="row">
             <!-- Repeat this card for each wallpaper -->
-             {% for papers in all_wallpaper %}
+             {% for papers in all_wallpapers %}
             <div class="col-md-4">
                 <div class="card">
                     <img src="{{papers.image.url}}" class="card-img-top" alt="Wallpaper 1">
                     <div class="card-body">
-                        <h5 class="card-title">{{owner}}</h5>
+                        <h5 class="card-title">{{papers.owner}}</h5>
                         <a href="{{papers.object.id}}" class="btn btn-primary">View Wallpaper</a>
                     </div>
                 </div>
