@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+<!---
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Wallpapers</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Wallpapers</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="terms.html">Terms & Conditions</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            -- Example of a wallpaper card --
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Wallpaper">
+                    <div class="card-body">
+                        <h5 class="card-title">Wallpaper Title</h5>
+                        <a href="wallpaper.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            -- Repeat the card structure for more wallpapers --
+        </div>
+    </div>
+
+
+</body>
+</html>
+
+---->
+
+{% block content %}
+
+    <!-- Content -->
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Repeat this card for each wallpaper -->
+             {% for papers in all_wallpaper %}
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{papers.image.url}}" class="card-img-top" alt="Wallpaper 1">
+                    <div class="card-body">
+                        <h5 class="card-title">{{owner}}</h5>
+                        <a href="{{papers.object.id}}" class="btn btn-primary">View Wallpaper</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+  {% endblock %}

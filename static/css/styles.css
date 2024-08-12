@@ -1,0 +1,20 @@
+
+body {
+    margin-bottom: 60px; /* Ensures that the footer does not overlap content */
+}
+
+/* styles.css */
+body {
+    padding-top: 56px;
+}
+
+footer {
+    background-color: #20CCC7; /* This is the extracted teal color */
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.card {
+    margin-bottom: 20px;
+}
