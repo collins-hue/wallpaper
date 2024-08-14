@@ -3,7 +3,9 @@
 
     <div class="container mt-4">
         <h1>Terms & Conditions</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras luctus, libero sit amet cursus consectetur, ligula urna facilisis erat, sed cursus justo nisl eget nulla. In ut felis orci. Quisque id tempor lacus.</p>
+        {% for terms in our_terms %}
+        <p>{{terms.article}}</p>
+        {% endfor %}
     </div>
     {% endblock%}
 
