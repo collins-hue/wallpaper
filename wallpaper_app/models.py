@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class WallpaperInfo(models.Model):
     image = models.ImageField(upload_to='media/')
@@ -6,6 +7,9 @@ class WallpaperInfo(models.Model):
     contact = models.URLField(blank=False)
     description = models.TextField(max_length=500)
     upload_date = models.DateTimeField(auto_now=True)
+    
+    def get_absolute_url(self):
+        return reverse('wallpaper_info', args=[str(self.id)])
     
     def __str__(self):
         return self.owner

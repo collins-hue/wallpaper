@@ -2,7 +2,10 @@ from django.http import Http404, HttpResponse
 from django.shortcuts import render, get_object_or_404
 
 from wallpaper_app.models import About, TermsConditions, WallpaperInfo
+import stripe
 
+# Stripe API key
+stripe.api_key = 'your-stripe-secret-key'
 # Create your views here.
 def home(request):
     all_wallpapers = WallpaperInfo.objects.all()
@@ -33,3 +36,21 @@ def terms_condition(request):
 
 def contact_us(request):
     return render(request, 'contact.html')
+
+
+def buy_us_coffee(request):
+    if request.method == 'POST':
+        amount = int(request.POST['amount']) * 100  # Stripe uses cents
+        try:
+            # Create a charge: this will charge the user's card
+            charge = stripe.Charge.create(
+                amount=amount,
+                currency="usd",
+                description="Donation",
+                source=request.POST['stripeToken']
+            )
+            return render(request, 'donate_success.html')
+        except stripe.error.StripeError:
+            return render(request, 'donate_failed.html')
+
+    return render(request, 'donate.html')
