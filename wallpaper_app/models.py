@@ -3,7 +3,7 @@ from django.urls import reverse
 
 class WallpaperInfo(models.Model):
     image = models.ImageField(upload_to='media/')
-    owner = models.TextField(max_length=200)
+    name = models.TextField(max_length=200)
     contact = models.URLField(blank=False)
     description = models.TextField(max_length=500)
     upload_date = models.DateTimeField(auto_now=True)
