@@ -10,7 +10,7 @@
                 <div class="card">
                     <img src="{{ papers.image.url }}" class="card-img-top" alt="Wallpaper 1">
                     <div class="card-body">
-                        <h5 class="card-title">{{papers.name}}</h5>
+                        <h5 class="card-title">{{papers.name|title}}</h5>
                         <a href="wallpaper/{{papers.id}}" class="btn btn-primary">View Wallpaper</a>
                     </div>
                 </div>
@@ -20,3 +20,4 @@
     </div>
 
   {% endblock %}
+
